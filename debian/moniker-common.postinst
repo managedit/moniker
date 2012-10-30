@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "configure" ]
+then
+	if ! getent group moniker > /dev/null 2>&1
+	then
+		addgroup --system moniker >/dev/null
+	fi
+	if ! getent passwd moniker > /dev/null 2>&1
+	then
+        adduser --system --home /var/lib/moniker --ingroup moniker --no-create-home --shell /bin/false moniker
+	fi
+	chown -R moniker:adm /var/log/moniker/
+	chmod 0750 /var/log/moniker/
+	chown moniker:moniker -R /var/lib/moniker/ /etc/moniker/
+	chmod 0750 /etc/moniker/
+fi
+
+#DEBHELPER#

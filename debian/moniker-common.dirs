@@ -1,0 +1,3 @@
+var/lib/moniker
+var/log/moniker
+usr/share/moniker

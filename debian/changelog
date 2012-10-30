@@ -1,0 +1,5 @@
+moniker (0.0-1) quantal; urgency=low
+
+  * Initial packaging
+
+ -- Kiall Mac Innes <kiall@managedit.ie>  Mon, 29 Oct 2012 21:03:33 +0000

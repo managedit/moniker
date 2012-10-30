@@ -1,0 +1,3 @@
+usr/bin/moniker-api
+debian/etc/moniker-api.conf /etc/moniker/
+debian/etc/moniker-api-paste.ini /etc/moniker/

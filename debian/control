@@ -1,0 +1,87 @@
+Source: moniker
+Section: python
+Priority: extra
+Maintainer: Kiall Mac Innes <kiall@managedit.ie>
+Build-Depends:
+    debhelper (>= 8.0.0),
+    python-all (>= 2.6),
+    git,
+    sqlite3
+Build-Depends-Indep:
+    python-setuptools,
+    python-setuptools-git
+Standards-Version: 3.9.3
+XS-Python-Version: >= 2.6
+Homepage: https://launchpad.net/moniker
+Vcs-Git: git://github.com/managedit/moniker.git
+Vcs-Browser: http://github.com/managedit/moniker
+
+Package: moniker
+Architecture: all
+Depends:
+    python-moniker (= ${binary:Version}),
+    ${misc:Depends}
+Description: Moniker Virtual Package
+ Moniker Virtual Package
+
+Package: moniker-common
+Architecture: all
+Depends:
+    ${misc:Depends}
+Description: Moniker Common
+ Moniker Common
+
+Package: moniker-api
+Architecture: all
+Depends:
+    python-moniker (= ${binary:Version}),
+    moniker-common (= ${binary:Version}),
+    ${python:Depends},
+    ${misc:Depends}
+Description: Moniker API
+ Moniker API
+
+Package: moniker-central
+Architecture: all
+Depends:
+    python-moniker (= ${binary:Version}),
+    moniker-common (= ${binary:Version}),
+    ${python:Depends},
+    ${misc:Depends}
+Description: Moniker Central
+ Moniker Central
+
+Package: moniker-agent-bind9
+Architecture: all
+Depends:
+    python-moniker (= ${binary:Version}),
+    moniker-common (= ${binary:Version}),
+    ${python:Depends},
+    ${misc:Depends}
+Description: Moniker Agent - Bind9
+ Moniker Agent - Bind9
+
+Package: python-moniker
+Architecture: all
+Depends:
+    python-flask,
+    python-eventlet,
+    python-jsonschema,
+    python-ipaddr,
+    python-pastedeploy,
+    python-stevedore,
+    python-routes,
+    python-iso8601,
+    python-webob,
+    monikerclient,
+    ${python:Depends},
+    ${misc:Depends}
+Recommends:
+    python-sqlalchemy,
+    python-migrate,
+    python-kombu
+Provides:
+    ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: Moniker Python Libraries
+ Moniker Python Libraries

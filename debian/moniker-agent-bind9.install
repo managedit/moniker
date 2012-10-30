@@ -1,0 +1,2 @@
+usr/bin/moniker-agent-bind9
+debian/etc/moniker-agent-bind9.conf /etc/moniker/

@@ -1,0 +1,3 @@
+usr/bin/moniker-central
+debian/etc/moniker-central.conf /etc/moniker/
+debian/etc/policy.json /etc/moniker/

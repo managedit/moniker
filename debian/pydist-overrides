@@ -1,0 +1,11 @@
+keystone python-keystone
+flask python-flask
+eventlet python-eventlet
+ipaddr python-ipaddr
+pastedeploy python-pastedeploy
+stevedore python-stevedore
+routes python-routes
+webob python-webob
+sqlalchemy python-sqlalchemy
+kombu python-kombu
+monikerclient monikerclient
