@@ -16,6 +16,7 @@
 from moniker.openstack.common import cfg
 from moniker.openstack.common import log as logging
 from moniker.openstack.common.rpc import service as rpc_service
+from stevedore import extension
 from moniker import storage
 from moniker import utils
 from moniker import policy
@@ -23,6 +24,8 @@ from moniker.agent import api as agent_api
 
 
 LOG = logging.getLogger(__name__)
+
+HANDLER_NAMESPACE = 'moniker.handler'
 
 
 class Service(rpc_service.Service):
@@ -37,6 +40,17 @@ class Service(rpc_service.Service):
         super(Service, self).__init__(*args, **kwargs)
 
         self.storage_conn = storage.get_connection(cfg.CONF)
+        self.handlers = self._load_handlers(HANDLER_NAMESPACE)
+
+    def _load_handlers(self, namespace):
+        """ Loads notification handlers """
+        LOG.debug("Loading notification handlers from '%s'" % namespace)
+
+        handler_kwargs = {'storage_conn': self.storage_conn}
+        mgr = extension.ExtensionManager(namespace, invoke_on_load=True,
+                                         invoke_kwds=handler_kwargs)
+
+        return mgr.extensions
 
     # Server Methods
     def create_server(self, context, values):

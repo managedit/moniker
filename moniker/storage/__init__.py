@@ -36,7 +36,7 @@ def register_opts(conf):
 
 def get_engine(conf):
     engine_name = urlparse(conf.database_connection).scheme
-    LOG.debug('looking for %r engine in %r', engine_name, DRIVER_NAMESPACE)
+    LOG.debug('Looking for %r engine in %r', engine_name, DRIVER_NAMESPACE)
     mgr = driver.DriverManager(
         DRIVER_NAMESPACE,
         engine_name,

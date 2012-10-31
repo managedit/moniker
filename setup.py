@@ -59,6 +59,11 @@ setup(
         mysql = moniker.storage.impl_sqlalchemy:SQLAlchemyStorage
         postgresql = moniker.storage.impl_sqlalchemy:SQLAlchemyStorage
         sqlite = moniker.storage.impl_sqlalchemy:SQLAlchemyStorage
+
+        [moniker.handler]
+        compute = moniker.handler.compute:ComputeHandler
+        network = moniker.handler.network:NetworkHandler
+
         [moniker.cli]
         database init = moniker.cli.database:InitCommand
         database sync = moniker.cli.database:SyncCommand
